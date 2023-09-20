@@ -15,11 +15,11 @@ app.get("/", (req, res)=>{
 	res.render("index")
 })
 
-const server = app.listen(PORT, ()=>{
+app.listen(PORT, ()=>{
 	console.log("Server live on port:", PORT)
 })
 
-const websocket = new WebSocket.WebSocketServer({ server })
+const websocket = new WebSocket.Server({ port: PORT })
 
 websocket.on("connection", (socket)=>{
 	console.log("New client connected on the server!")
