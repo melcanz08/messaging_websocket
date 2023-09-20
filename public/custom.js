@@ -1,4 +1,4 @@
-const socket = new WebSocket('wss://simple-websocket-messaging.onrender.com');
+const socket = new WebSocket('ws://simple-websocket-messaging.onrender.com');
 let msgDiv = document.getElementById("msgDiv");
 socket.onopen = ()=>{
 	console.log("Websocket connected to the server!")
