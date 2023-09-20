@@ -15,10 +15,6 @@ app.get("/", (req, res)=>{
 	res.render("index")
 })
 
-app.listen(PORT, ()=>{
-	console.log("Server live on port:", PORT)
-})
-
 const websocket = new WebSocket.WebSocketServer({ app })
 
 websocket.on("connection", (socket)=>{
@@ -28,7 +24,11 @@ websocket.on("connection", (socket)=>{
 		console.log("Messsage received from client: ",msg.toString())
 		socket.send(msg.toString())
 	})
-
-
 })
+
+app.listen(PORT, ()=>{
+	console.log("Server live on port:", PORT)
+})
+
+
 
