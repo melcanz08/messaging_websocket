@@ -15,7 +15,11 @@ app.get("/", (req, res)=>{
 	res.render("index")
 })
 
-const websocket = new WebSocket.WebSocketServer({ server: app })
+const server = app.listen(PORT, ()=>{
+	console.log("Server live on port:", PORT)
+})
+
+const websocket = new WebSocket.WebSocketServer({ server })
 
 websocket.on("connection", (socket)=>{
 	console.log("New client connected on the server!")
@@ -24,10 +28,6 @@ websocket.on("connection", (socket)=>{
 		console.log("Messsage received from client: ",msg.toString())
 		socket.send(msg.toString())
 	})
-})
-
-app.listen(PORT, ()=>{
-	console.log("Server live on port:", PORT)
 })
 
 
