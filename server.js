@@ -19,7 +19,7 @@ app.listen(PORT, ()=>{
 	console.log("Server live on port:", PORT)
 })
 
-const websocket = new WebSocket.Server({ port: PORT })
+const websocket = new WebSocket.WebSocketServer({ app })
 
 websocket.on("connection", (socket)=>{
 	console.log("New client connected on the server!")
