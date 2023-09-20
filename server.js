@@ -15,7 +15,7 @@ app.get("/", (req, res)=>{
 	res.render("index")
 })
 
-const websocket = new WebSocket.WebSocketServer({ app })
+const websocket = new WebSocket.WebSocketServer({ server: app })
 
 websocket.on("connection", (socket)=>{
 	console.log("New client connected on the server!")
